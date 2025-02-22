@@ -2,6 +2,10 @@
 
 This sample applicaiton uses spring boot and react frontend (todo) to talk to google model 'Gemini 1.5 glash' to get answers for questions provided.
 
+### Environment vairable must be set before running
+- GEMINI_API_URL (refer: [this](https://ai.google.dev/gemini-api/docs/api-key#send-gemini-api-request))
+- GEMINI_API_KEY (refer: [this](https://aistudio.google.com/app/apikey))
+
 
 ### Links to documentation
 
@@ -10,4 +14,5 @@ This sample applicaiton uses spring boot and react frontend (todo) to talk to go
 
 ### Demo
 
-- ![Postman call](screenshots/backend_call_01.PNG) 
+- ![Postman call](screenshots/backend_call_01.PNG)
+- ![Postman call](screenshots/chatgem_react_app.PNG) 

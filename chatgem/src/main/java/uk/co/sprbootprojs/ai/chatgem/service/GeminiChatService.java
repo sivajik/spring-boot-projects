@@ -27,15 +27,13 @@ public class GeminiChatService {
                 })
         });
 
-        String response = webClient.post()
+        return webClient.post()
                 .uri(geminiAPIUrl + geminiAPIKey)
                 .header("Content-Type", "application/json")
                 .bodyValue(payload)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-
-        return response;
     }
 }
 
