@@ -14,5 +14,5 @@ This sample applicaiton uses spring boot and react frontend (todo) to talk to go
 
 ### Demo
 
-- ![Postman call](screenshots/backend_call_01.PNG)
-- ![Postman call](screenshots/chatgem_react_app.PNG) 
+- ![Postman call](screenshots/backend_call_01.png)
+- ![React App](screenshots/chatgem_react_app.png) 
