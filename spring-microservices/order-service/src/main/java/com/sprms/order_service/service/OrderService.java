@@ -6,6 +6,7 @@ import com.sprms.order_service.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -21,5 +22,9 @@ public class OrderService {
                 .quantity(orderRequest.quantity())
                 .build();
         orderRepository.save(order);
+    }
+
+    public List<Order> getOrders() {
+        return this.orderRepository.findAll();
     }
 }
