@@ -1,5 +1,6 @@
 package com.sprms.order_service;
 
+import com.sprms.order_service.subs.InventoryClientStub;
 import io.restassured.RestAssured;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,9 +8,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.testcontainers.containers.MySQLContainer;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureWireMock (port = 0)
 class OrderServiceApplicationTests {
     @ServiceConnection
     static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.3.0");
@@ -36,6 +39,8 @@ class OrderServiceApplicationTests {
                     "quantity": 2
                 }
                 """;
+        InventoryClientStub.getInventoryClientStub("iphone_pro", 2);
+
         String responseString = RestAssured.given().contentType("application/json")
                 .body(requestBody)
                 .when()
