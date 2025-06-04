@@ -18,19 +18,17 @@ public class Game {
         this.board = board;
     }
 
-    public boolean makeMove(int i, int j) {
+    public void makeMove(int i, int j) {
         if (GameState.GAME_IN_PROGRESS != gameState) {
             System.out.println("game is nt in progress so cant cont");
-            return false;
+            return;
         }
         if (board.placeMark(i, j, currentPlayer)) {
             updateState();
             if (GameState.GAME_IN_PROGRESS == gameState) {
                 switchPlayer();
             }
-            return true;
         }
-        return false;
     }
 
     private void updateState() {
@@ -41,7 +39,6 @@ public class Game {
         } else {
             gameState = GameState.GAME_IN_PROGRESS;
         }
-
     }
 
     private boolean checkWin() {
@@ -71,6 +68,4 @@ public class Game {
     private void switchPlayer() {
         currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
     }
-
-
 }
